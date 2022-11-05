@@ -1,9 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_functions/cloud_functions.dart';
-
-//code for designing the UI of our text field where the user writes his email id or password
 
 enum LoginResponse{
   LoignSuccessful,

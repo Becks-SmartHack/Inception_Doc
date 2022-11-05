@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:structured_flutter_backend/screens/splash.dart';
-import 'package:structured_flutter_backend/services/login_service.dart';
-import 'package:structured_flutter_backend/services/registration_service.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
