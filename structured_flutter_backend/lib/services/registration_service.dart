@@ -65,16 +65,6 @@ class RegistrationUser {
           break;
       }
 
-      //   final user = <String, dynamic>{
-//     "first": "Ada",
-//     "last": "Lovelace",
-//     "born": 1815
-//   };
-//
-// // Add a new document with a generated ID
-//   db.collection("hospital1").add(user).then((DocumentReference doc) =>
-//       print('DocumentSnapshot added with ID: ${doc.id}'));
-
       return RegistrationResponse.RegistrationSuccessful;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -92,79 +82,3 @@ class RegistrationUser {
     return RegistrationResponse.OtherError;
   }
 }
-
-// class RegistrationScreen extends StatefulWidget {
-//   @override
-//   _RegistrationScreenState createState() => _RegistrationScreenState();
-// }
-//
-// class _RegistrationScreenState extends State<RegistrationScreen> {
-//   final _auth = FirebaseAuth.instance;
-//   late String email;
-//   late String password;
-//   bool showSpinner = false;
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.white,
-//       body: ModalProgressHUD(
-//         inAsyncCall: showSpinner,
-//         child: Padding(
-//           padding: EdgeInsets.symmetric(horizontal: 24.0),
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             crossAxisAlignment: CrossAxisAlignment.stretch,
-//             children: <Widget>[
-//               TextField(
-//                   keyboardType: TextInputType.emailAddress,
-//                   textAlign: TextAlign.center,
-//                   onChanged: (value) {
-//                     email = value;
-//                     //Do something with the user input.
-//                   },
-//                   decoration: kTextFieldDecoration.copyWith(
-//                       hintText: 'Enter your email')),
-//               SizedBox(
-//                 height: 8.0,
-//               ),
-//               TextField(
-//                   obscureText: true,
-//                   textAlign: TextAlign.center,
-//                   onChanged: (value) {
-//                     password = value;
-//                     //Do something with the user input.
-//                   },
-//                   decoration: kTextFieldDecoration.copyWith(
-//                       hintText: 'Enter your Password')),
-//               SizedBox(
-//                 height: 24.0,
-//               ),
-//               // RoundedButton(
-//               //   colour: Colors.blueAccent,
-//               //   title: 'Register',
-//               //   onPressed: () async {
-//               //     setState(() {
-//               //       showSpinner = true;
-//               //     });
-//               //     try {
-//               //       final newUser = await _auth.createUserWithEmailAndPassword(
-//               //           email: email, password: password);
-//               //       if (newUser != null) {
-//               //         Navigator.pushNamed(context, 'home_screen');
-//               //       }
-//               //     } catch (e) {
-//               //       print(e);
-//               //     }
-//               //     setState(() {
-//               //       showSpinner = false;
-//               //     });
-//               //   },
-//               // )
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
