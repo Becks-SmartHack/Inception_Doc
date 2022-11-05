@@ -3,6 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:structured_flutter_backend/screens/appFeatures_screen.dart';
 
 class CarouselScreen extends StatefulWidget {
   const CarouselScreen({Key? key}) : super(key: key);
@@ -37,14 +38,33 @@ class _CarouselScreenState extends State<CarouselScreen> {
                 return Builder(
                   builder: (BuildContext context) {
                     return Container(
-                        width: MediaQuery.of(context).size.width,
-                        margin: EdgeInsets.symmetric(horizontal: 5.0),
-                        decoration: BoxDecoration(
-                            color: Colors.blue
-                        ),
-                        child:
-                          Image.network('https://docs.flutter.dev/assets/images/dash/dash-fainting.gif')
-                    );
+                            width: MediaQuery.of(context).size.width/1.2,
+                            margin: EdgeInsets.symmetric(horizontal: 10.0),
+                            decoration: BoxDecoration(
+                                color: Colors.black12,
+                                borderRadius: BorderRadius.all(Radius.circular(30)),
+                            ),
+                            child:
+                              GestureDetector(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(18.0),
+                                  child: Image.network('https://docs.flutter.dev/assets/images/dash/dash-fainting.gif'),
+
+                                ),
+                                onTap: () {
+                                  Navigator.push<Widget>(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => AppFeaturesScreen(),
+                                    ),
+                                  );}
+
+
+                              )
+                        );
+
+
+
 
                   },
                 );
