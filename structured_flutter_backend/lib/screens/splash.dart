@@ -31,44 +31,43 @@ class _Splash extends State<Splash> with TickerProviderStateMixin{
     double _height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.red,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Image.asset(
+      backgroundColor: Colors.white,
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset(
                   'assets/cerc1.png',
-                width: 200,
-                height: 200,
-              )
-            ],
-          ),
-          // Padding(padding: EdgeInsets.fromLTRB(0, 83, 0, 0)),
-          Container(
-            alignment: Alignment.center,
-            width: 275,
-            height: 185,
-            child:ScaleTransition(
-              scale: _animation,
-              alignment: Alignment.center,
-              child: Image.asset('assets/logo.png'),
+                )
+              ],
+            ),
+            Container(
+                alignment: Alignment.center,
+                width: 275,
+                height: 185,
+                child:ScaleTransition(
+                  scale: _animation,
+                  alignment: Alignment.center,
+                  child: Image.asset('assets/logo.png'),
+                )
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  width: _width,
+                  child: Image.asset(
+                    'assets/cerc2.png',
+                    fit: BoxFit.fitWidth,
+                  ),
+                ),
+              ],
             )
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Image.asset(
-                'assets/cerc2.png',
-                height: 200,
-                width: _width,
-              ),
-            ],
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
