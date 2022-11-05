@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:structured_flutter_backend/screens/AddHospitalLogoScreen.dart';
 
 class AppFeaturesScreen extends StatefulWidget {
   const AppFeaturesScreen({Key? key}) : super(key: key);
@@ -8,20 +9,22 @@ class AppFeaturesScreen extends StatefulWidget {
 }
 
 class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
-  bool? _valueAddPacientList = false;
   bool? _valueAddPrescription = false;
   bool pressedButton = false;
 
+
   @override
   Widget build(BuildContext context) {
+    final double width = MediaQuery.of(context).size.width;
     return Scaffold(
       body:
-          Column(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
+          Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
         Container(
           child: Image.asset('assets/Component3.png'),
           alignment: Alignment.topLeft,
         ),
-
         Container(
             padding: EdgeInsets.all(18.0),
             alignment: Alignment.centerRight,
@@ -34,40 +37,38 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
                   children: [
                     WidgetSpan(
                       child: GestureDetector(
-                        child: Icon(
-                          Icons.info_outlined,
-                          color: Colors.black,
-                        ),
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-
-                                backgroundColor: Colors.lightBlue[700],
-                                  content: Text("Sign In, Log In and Patients List are mandatory for your application. "
+                          child: Icon(
+                            Icons.info_outlined,
+                            color: Colors.black,
+                          ),
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                    backgroundColor: Colors.lightBlue[700],
+                                    content: Text(
+                                      "Sign In, Log In and Patients List are mandatory for your application. "
                                       "Now, depending on the desired features, additional costs may apply.",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),),
-                                  actions: [
-                                    Align(
-                                      alignment: Alignment.topRight,
-                                      child: IconButton(
-                                          icon: Icon(Icons.close),
-                                          onPressed: () => Navigator.pop(context, true) ),
-                                    )
-                      
-                                  ]);
-                            },
-                          );
-                        }
-
-                      ),
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    actions: [
+                                      Align(
+                                        alignment: Alignment.topRight,
+                                        child: IconButton(
+                                            icon: Icon(Icons.close),
+                                            onPressed: () =>
+                                                Navigator.pop(context, true)),
+                                      )
+                                    ]);
+                              },
+                            );
+                          }),
                     ),
                   ]),
             )),
-
         Expanded(
           child: ListView(
             children: [
@@ -90,16 +91,12 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
                   title: const Text('Pacients List',
                       style: TextStyle(fontSize: 25)),
                   subtitle: const Text(
-                      "User will be able to see his patients and their details",
+                      "User will be able to see his patients and their details.\n"
+                      "20€",
                       style: TextStyle(fontSize: 15)),
-                  value: _valueAddPacientList,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      _valueAddPacientList = value;
-                    });
-                  }),
+                  value: true,
+                  onChanged: null),
               CheckboxListTile(
-
                   title: const Text('Add prescription',
                       style: TextStyle(fontSize: 25)),
                   subtitle: const Text(
@@ -114,14 +111,12 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
             ],
           ),
         ),
-
-
         SizedBox(
-            height: 25,
+          height: 25,
         ),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-              elevation: 5,
+            elevation: 5,
           ),
           onPressed: () {
             showDialog(
@@ -141,12 +136,59 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
           child: Text('Generate app'),
         ),
 
-        Expanded(
-          child: Align(
-            alignment: FractionalOffset.bottomRight,
-            child: Image.asset('assets/Component4.png'),
-          ),
-        ),
+        //
+        // Expanded(
+        //   child: Align(
+        //     alignment: FractionalOffset.bottomRight,
+        //     child: Image.asset('assets/Component4.png'),
+        //   ),
+        // ),
+
+                Container(
+                  width: width,
+                  alignment: Alignment.bottomRight,
+                  child: Stack(children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                      Image.asset('assets/Component4.png'),
+                    ]),
+                    Container(
+                      alignment: Alignment.bottomRight,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 50,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              GestureDetector(
+                                  child: Text(
+                                      "Click to generate\n application",
+                                      style: TextStyle(
+                                          fontSize: 20,
+                                          color: Colors.white
+                                      )),
+                                  onTap: () {
+                                    Navigator.push<Widget>(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => AddHospitalLogoScreen(),
+                                      ),
+                                    );}
+                              ),
+                              SizedBox(
+                                width: 50,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  ]),
+                ),
+
+
+
       ]),
     );
   }

@@ -80,7 +80,6 @@ class _CarouselScreenState extends State<CarouselScreen> {
                                       ),),
                                     ),
                                   ],
-
                                 )
                           );
                     },
