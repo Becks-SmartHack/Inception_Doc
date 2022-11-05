@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:structured_flutter_backend/screens/PaymentCheckoutScreen.dart';
 
 import 'appFeatures_screen.dart';
 
@@ -64,7 +65,7 @@ class _AddHospitalLogoScreenState extends State<AddHospitalLogoScreen> {
                       children: [
                         GestureDetector(
                           child: Text(
-                              "Continue to payment",
+                              "Continue to payment checkout",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white
@@ -73,7 +74,7 @@ class _AddHospitalLogoScreenState extends State<AddHospitalLogoScreen> {
                               Navigator.push<Widget>(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => AppFeaturesScreen(),
+                                  builder: (context) => PaymentCheckoutScreen(),
                                 ),
                               );}
                         ),
