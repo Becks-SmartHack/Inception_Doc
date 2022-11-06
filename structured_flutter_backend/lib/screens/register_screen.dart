@@ -1,7 +1,10 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:structured_flutter_backend/screens/carousel_screen.dart';
 import 'package:structured_flutter_backend/screens/login_page.dart';
+import 'package:structured_flutter_backend/services/login_service.dart';
+import 'package:structured_flutter_backend/services/registration_service.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -172,9 +175,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         )
                     )
                 ),
-                onPressed: () => setState(() {
+                onPressed: () =>
+                  setState(() async {
+                   var user = RegistrationUser(hospitalController.text, firstNameController.text, lastNameController.text,
+                   emailController.text, passwordController.text, UserType.AppManager);
+                   await user.registerUser();
+                   var userLog = LoginUser(emailController.text, passwordController.text);
+                   await userLog.loginUser();
 
-                })
+                   Navigator.push<Widget>(
+                     context,
+                     MaterialPageRoute(
+                       builder: (context) => CarouselScreen(),
+                     ),
+                   );
+
+                }),
+
             ),
 
             Row(
