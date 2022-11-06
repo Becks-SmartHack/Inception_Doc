@@ -75,18 +75,20 @@ class _DownloadScreenState extends State<DownloadScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    GestureDetector(
+                      child: Text(
                         "Click here to download",
                         style: TextStyle(
                             fontSize: 20,
-                        fontStyle: FontStyle.italic,
-                        color: Colors.amber[900]),
-                    ),
+                            fontStyle: FontStyle.italic,
+                            color: Colors.amber[900]),
+                      ),
+                      onTap: downloadApk,
+                    )
                   ],
                 ),
               ],
             ),
-
 
             Container(
               width: width,
