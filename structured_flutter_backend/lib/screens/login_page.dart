@@ -77,7 +77,6 @@ class _LoginPage  extends State<LoginPage>{
                   TextFormField(
                     controller: passwordController,
                     obscureText: true,
-                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
 
                       filled: true,
@@ -97,8 +96,25 @@ class _LoginPage  extends State<LoginPage>{
 
               ElevatedButton(
                 onPressed: () async {
-                  await LoginUser(emailController.text, passwordController.text);
-                  navigateCarouselScreen();
+                  var Response = LoginUser(emailController.text, passwordController.text);
+                  var response;
+                  await Response.loginUser().then((value) => response = value);
+                  print(response);
+                  if (response == LoginResponse.LoignSuccessful){
+                    navigateCarouselScreen();
+                  }
+                  else if (response == LoginResponse.LoginError){
+                    showDialog(context: context,
+                        builder: (context){
+                      return AlertDialog(
+                        title: Text(
+                        "Wrong credentials!",
+                        style: TextStyle(fontSize: 24.0),
+                      ),
+                      );
+                        });
+                  }
+
                 },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color?>(
