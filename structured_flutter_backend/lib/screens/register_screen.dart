@@ -19,6 +19,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController lastNameController = new TextEditingController();
   TextEditingController emailController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -148,17 +149,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
             ),
-       // ElevatedButton(onPressed: null,
-       //   child: Text("Register"),
-       //     style: ButtonStyle(
-       //         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-       //             RoundedRectangleBorder(
-       //                 borderRadius: BorderRadius.circular(18.0),
-       //                 side: BorderSide(color: Colors.red)
-       //             )
-       //         )
-       //     )),
-
 
             ElevatedButton(
                 child: Text(
@@ -179,16 +169,32 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   setState(() async {
                    var user = RegistrationUser(hospitalController.text, firstNameController.text, lastNameController.text,
                    emailController.text, passwordController.text, UserType.AppManager);
-                   await user.registerUser();
+                   var registerResponse;
+                   await user.registerUser().then((value) => registerResponse = value);
                    var userLog = LoginUser(emailController.text, passwordController.text);
-                   await userLog.loginUser();
+                   
+                   print(registerResponse);
 
-                   Navigator.push<Widget>(
-                     context,
-                     MaterialPageRoute(
-                       builder: (context) => CarouselScreen(),
-                     ),
-                   );
+                  if(registerResponse == RegistrationResponse.RegistrationSuccessful){
+                    Navigator.push<Widget>(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CarouselScreen(),
+                      ),
+                    );
+                  }
+                  else{
+                    showDialog(context: context,
+                        builder: (context){
+                          return AlertDialog(
+                            title: Text(
+                              "The registration went wrong, please try again!",
+                              style: TextStyle(fontSize: 24.0),
+                            ),
+                          );
+                        });
+                  }
+
 
                 }),
 
