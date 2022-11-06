@@ -41,6 +41,13 @@ dependencies:
   firebase_app_check: ^0.0.9+1
   firebase_auth: ^3.11.2
   cloud_firestore: ^3.5.1
+  shared_preferences: ^2.0.13
+  firebase_database: ^9.0.11
+  http: ^0.13.4
+  image_picker: ^0.8.5
+  carousel_slider: ^4.1.1
+  animated_notch_bottom_bar: ^0.0.6
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -65,9 +72,23 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/logo.png
+    - assets/elipse.png
+    - assets/om.png
+    - assets/menu1.png
+    - assets/menu3.png
+    - assets/sfera.png
+    - assets/delete.png
+    - assets/check.png
+    - assets/background.png
+    - assets/elipser.png
+    - assets/elipsel.png
+    - assets/logoclinica.png
+    - assets/sus.png
+    - assets/jos.png
+    - assets/dreapta.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
