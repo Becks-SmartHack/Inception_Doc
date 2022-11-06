@@ -1,10 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:simple_downloader/simple_downloader.dart';
 import 'firebase_options.dart';
+import 'package:http/http.dart' as http;
+import 'package:flowder/flowder.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:flutter/material.dart';
+import 'dart:io';
+import 'dart:ui';
+import 'package:dio/dio.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  FlutterDownloader.initialize();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -18,6 +27,8 @@ Future<void> main() async {
 // // Add a new document with a generated ID
 //   db.collection("hospital1").add(user).then((DocumentReference doc) =>
 //       print('DocumentSnapshot added with ID: ${doc.id}'));
+  var dio = Dio();
+  var response = await dio.download('http://10.0.2.2:8080', "/sdcard/download/a.txt");
 
   runApp(const MyApp());
 }

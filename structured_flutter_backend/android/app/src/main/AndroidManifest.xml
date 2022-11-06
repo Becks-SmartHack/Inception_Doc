@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.structured_flutter_backend">
    <application
+        android:usesCleartextTraffic="true"
         android:label="structured_flutter_backend"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
