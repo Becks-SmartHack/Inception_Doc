@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:structured_flutter_backend/screens/AddHospitalLogoScreen.dart';
+import 'package:structured_flutter_backend/screens/carousel_screen.dart';
 
 
 class AppFeaturesScreen extends StatefulWidget {
@@ -19,6 +20,15 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
     final double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white, size: 30,),
+          onPressed: () =>  Navigator.of(context).pop(),
+        ),
+      ),
       body:
           Column(
               mainAxisAlignment: MainAxisAlignment.start,
