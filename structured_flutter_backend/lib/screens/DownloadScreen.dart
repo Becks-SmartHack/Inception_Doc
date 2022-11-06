@@ -15,7 +15,7 @@ class DownloadScreen extends StatefulWidget {
 Future<void> downloadApk () async {
   var dio = Dio();
   try {
-    var response = await dio.download('http://192.168.22.141:3000', "/sdcard/download/a.txt");
+    var response = await dio.download('http://192.168.22.141:3000', "/sdcard/download/app-debug.apk");
     print(response);
   } catch (e) {
     print(e);
