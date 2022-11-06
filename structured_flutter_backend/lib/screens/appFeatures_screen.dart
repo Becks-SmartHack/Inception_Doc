@@ -10,13 +10,14 @@ class AppFeaturesScreen extends StatefulWidget {
 }
 
 class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
-  bool? _valueAddPrescription = false;
+  bool _valueAddPrescription = false;
   bool pressedButton = false;
 
 
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body:
           Column(
@@ -73,7 +74,8 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
         Expanded(
           child: ListView(
             children: [
-              CheckboxListTile(
+              SwitchListTile(
+                activeColor: Colors.amber[900],
                 title: const Text('Sign in', style: TextStyle(fontSize: 25)),
                 subtitle: const Text("User will be able to create an account\n"
                     "FREE",
@@ -81,7 +83,8 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
                 value: true,
                 onChanged: null,
               ),
-              CheckboxListTile(
+              SwitchListTile(
+                activeColor: Colors.amber[900],
                 title: const Text('Log in', style: TextStyle(fontSize: 25)),
                 subtitle: const Text(
                     "User will be able to log in into an existing account\n"
@@ -90,7 +93,8 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
                 value: true,
                 onChanged: null,
               ),
-              CheckboxListTile(
+              SwitchListTile(
+                  activeColor: Colors.amber[900],
                   title: const Text('Pacients List',
                       style: TextStyle(fontSize: 25)),
                   subtitle: const Text(
@@ -99,7 +103,8 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
                       style: TextStyle(fontSize: 15)),
                   value: true,
                   onChanged: null),
-              CheckboxListTile(
+              SwitchListTile(
+                  activeColor: Colors.amber,
                   title: const Text('Add prescription',
                       style: TextStyle(fontSize: 25)),
                   subtitle: const Text(
@@ -107,7 +112,7 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
                           + "20€",
                       style: TextStyle(fontSize: 15)),
                   value: _valueAddPrescription,
-                  onChanged: (bool? value) {
+                  onChanged: (bool value) {
                     setState(() {
                       _valueAddPrescription = value;
 
