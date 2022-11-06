@@ -50,6 +50,24 @@ class _DownloadScreenState extends State<DownloadScreen> {
               ]),
             ),
 
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                        "Click here to download",
+                        style: TextStyle(
+                            fontSize: 20,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.amber[900]),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+
 
             Container(
               width: width,

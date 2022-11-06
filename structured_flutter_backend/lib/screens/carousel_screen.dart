@@ -50,12 +50,12 @@ class _CarouselScreenState extends State<CarouselScreen> {
                                   children: [
                                     Padding(
                                       padding: const EdgeInsets.fromLTRB(8, 0, 8, 8),
-                                      child: Text(
-                                          "Doctor",
+                                      child:
+                                      Text(
+                                          titleList[i],
                                       style: TextStyle(
                                         fontSize:25,
                                       ),),
-
                                     ),
                                     GestureDetector(
                                       child: Padding(
@@ -74,7 +74,7 @@ class _CarouselScreenState extends State<CarouselScreen> {
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Text(
-                                          "50€",
+                                          priceList[i],
                                       style: TextStyle(
                                        fontSize: 20
                                       ),),
@@ -105,4 +105,14 @@ List imgList = [
   Image.asset('assets/1663779989005 1.png'),
   Image.asset('assets/consult-rezidenti-blog- 1.png'),
   Image.asset('assets/spital-generic-shutterstock 1.png'),
+];
+
+List titleList = [
+  "My pacients",
+  "My doctors",
+  "Both"
+];
+
+List priceList = [
+  "50€", "50€", "90€"
 ];
