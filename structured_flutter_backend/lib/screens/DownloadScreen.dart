@@ -2,6 +2,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 class DownloadScreen extends StatefulWidget {
@@ -9,6 +10,16 @@ class DownloadScreen extends StatefulWidget {
 
   @override
   State<DownloadScreen> createState() => _DownloadScreenState();
+}
+
+Future<void> downloadApk () async {
+  var dio = Dio();
+  try {
+    var response = await dio.download('http://192.168.22.141:3000', "/sdcard/download/a.txt");
+    print(response);
+  } catch (e) {
+    print(e);
+  }
 }
 
 class _DownloadScreenState extends State<DownloadScreen> {
@@ -46,7 +57,6 @@ class _DownloadScreenState extends State<DownloadScreen> {
                 Image.asset(
                     'assets/Asset 5@4x.png',
                     width: width/2),
-
               ]),
             ),
 
