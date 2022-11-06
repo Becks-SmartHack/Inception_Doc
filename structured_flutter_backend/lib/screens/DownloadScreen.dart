@@ -18,6 +18,15 @@ class _DownloadScreenState extends State<DownloadScreen> {
     final double width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.white, size: 30,),
+            onPressed: () =>  Navigator.of(context).pop(),
+          ),
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
