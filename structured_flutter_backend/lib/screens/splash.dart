@@ -1,9 +1,5 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:proste_bezier_curve/proste_bezier_curve.dart';
-import 'package:structured_flutter_backend/main.dart';
+import 'package:structured_flutter_backend/screens/first_page.dart';
 
 class Splash extends StatefulWidget {
   const Splash ({Key? key, required this.title}) : super (key: key);
@@ -17,12 +13,26 @@ class _Splash extends State<Splash> with TickerProviderStateMixin{
   late AnimationController _controller;
   late Animation<double> _animation;
 
+  void navigateFirstPage () async {
+    await Future.delayed(Duration(seconds: 3));
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+            builder: (context) => FirstPage (
+              title: 'First Page',
+            )
+        )
+    );
+  }
+
   @override
   void initState() {
-    super.initState();
     _controller = AnimationController(duration: Duration(seconds: 3), vsync: this);
     _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceIn);
     _controller.forward();
+    super.initState();
+
+    navigateFirstPage();
   }
 
   @override
