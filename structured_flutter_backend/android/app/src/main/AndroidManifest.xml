@@ -2,6 +2,7 @@
     package="com.example.structured_flutter_backend">
    <application
         android:label="structured_flutter_backend"
+       android:usesCleartextTraffic="true"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
