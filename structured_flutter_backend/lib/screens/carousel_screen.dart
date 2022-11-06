@@ -29,12 +29,25 @@ class _CarouselScreenState extends State<CarouselScreen> {
 
       resizeToAvoidBottomInset : false,
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Container(
               child: Image.asset('assets/Component3.png'),
               alignment: Alignment.topLeft,
             ),
+
+            Center(
+              child: Padding(
+                  padding: EdgeInsets.all(18),
+                child: Text(
+                  'Who are you building your application for?',
+                  style: TextStyle(
+                    fontSize: 35.0,
+                  )
+                )
+              ),
+            ),
+
             Padding(
               padding: const EdgeInsets.fromLTRB(10, 50, 10, 50),
               child: CarouselSlider(

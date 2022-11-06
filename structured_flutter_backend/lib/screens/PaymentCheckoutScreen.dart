@@ -62,7 +62,8 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
                 children: [
                   Text(
                       "  - Application created only for your doctors\n"
-                          "  - default settings",
+                          "  - Default settings\n"
+                          "  - Add prescription/diagnostic to pacient",
                       style: TextStyle(fontSize: 20)),
                 ],
               ),
