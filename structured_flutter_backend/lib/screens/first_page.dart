@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:structured_flutter_backend/screens/splash.dart';
 
+import 'login_page.dart';
+
 class FirstPage extends StatefulWidget{
   const FirstPage ({Key? key, required this.title}) : super (key: key);
   final String title;
@@ -14,9 +16,9 @@ List<ContentConfig> createSlides() {
   List<ContentConfig> slides = [];
 
   slides.add(
-    ContentConfig(
-      widgetTitle: Text('Welcome')
-    )
+      ContentConfig(
+          widgetTitle: Text('Welcome')
+      )
   );
 
   return slides;
@@ -27,6 +29,17 @@ class _FirstPage  extends State<FirstPage>{
   Widget build(BuildContext context) {
     double _width = MediaQuery.of(context).size.width;
     double _height = MediaQuery.of(context).size.height;
+
+    void navigateLogin (){
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => LoginPage (
+                title: 'Login Page',
+              )
+          )
+      );
+    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -63,6 +76,7 @@ class _FirstPage  extends State<FirstPage>{
                     ),
                   ],
                 ),
+                ElevatedButton(onPressed: navigateLogin, child: Text('Next'))
                 // IntroSlider(
                 //   key: UniqueKey(),
                 //   listContentConfig: createSlides(),
