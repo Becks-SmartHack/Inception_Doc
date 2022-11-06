@@ -27,7 +27,6 @@ class LoginUser {
     } catch (e) {
       print (e);
     }
-
     return LoginResponse.LoginError;
   }
 

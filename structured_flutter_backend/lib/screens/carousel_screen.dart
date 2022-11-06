@@ -17,16 +17,6 @@ class _CarouselScreenState extends State<CarouselScreen> {
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white, size: 30,),
-          onPressed: () => null,
-        ),
-      ),
-
       resizeToAvoidBottomInset : false,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

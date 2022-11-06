@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
+import 'package:structured_flutter_backend/screens/register_screen.dart';
 import 'package:structured_flutter_backend/screens/splash.dart';
 import 'package:structured_flutter_backend/screens/carousel_screen.dart';
+import 'package:structured_flutter_backend/services/login_service.dart';
 
 class LoginPage extends StatefulWidget{
   const LoginPage ({Key? key, required this.title}) : super (key: key);
@@ -16,18 +18,20 @@ class _LoginPage  extends State<LoginPage>{
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    TextEditingController emailController = new TextEditingController();
+    TextEditingController passwordController = new TextEditingController();
 
     void navigateCarouselScreen () {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-              builder: (context) => CarouselScreen (
-              )
+              builder: (context) => CarouselScreen ()
           )
       );
     }
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       body: Container(
         child: Column(
@@ -54,7 +58,8 @@ class _LoginPage  extends State<LoginPage>{
                 padding: EdgeInsets.fromLTRB(100 * width / 1080 , 0, 100 * width / 1080, 0),
                 child: Column(
                 children:[
-                  TextField(
+                  TextFormField(
+                    controller: emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     filled: true,
@@ -68,7 +73,9 @@ class _LoginPage  extends State<LoginPage>{
                   ),
                 ),
                   SizedBox(height: 40),
-                  TextField(
+
+                  TextFormField(
+                    controller: passwordController,
                     obscureText: true,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
@@ -89,7 +96,10 @@ class _LoginPage  extends State<LoginPage>{
             ),
 
               ElevatedButton(
-                onPressed: navigateCarouselScreen,
+                onPressed: () async {
+                  await LoginUser(emailController.text, passwordController.text);
+                  navigateCarouselScreen();
+                },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.resolveWith<Color?>(
                   (Set<MaterialState> states) {
@@ -114,7 +124,7 @@ class _LoginPage  extends State<LoginPage>{
                   Navigator.push<Widget>(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => CarouselScreen(),
+                      builder: (context) => RegisterScreen(),
                     ),
                   );
                 },
