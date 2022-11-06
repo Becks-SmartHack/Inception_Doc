@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:structured_flutter_backend/screens/AddHospitalLogoScreen.dart';
 
+
 class AppFeaturesScreen extends StatefulWidget {
   const AppFeaturesScreen({Key? key}) : super(key: key);
 
@@ -74,7 +75,8 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
             children: [
               CheckboxListTile(
                 title: const Text('Sign in', style: TextStyle(fontSize: 25)),
-                subtitle: const Text("User will be able to create an account",
+                subtitle: const Text("User will be able to create an account\n"
+                    "FREE",
                     style: TextStyle(fontSize: 15)),
                 value: true,
                 onChanged: null,
@@ -82,7 +84,8 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
               CheckboxListTile(
                 title: const Text('Log in', style: TextStyle(fontSize: 25)),
                 subtitle: const Text(
-                    "User will be able to log in into an existing account",
+                    "User will be able to log in into an existing account\n"
+                        "FREE",
                     style: TextStyle(fontSize: 15)),
                 value: true,
                 onChanged: null,
@@ -92,7 +95,7 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
                       style: TextStyle(fontSize: 25)),
                   subtitle: const Text(
                       "User will be able to see his patients and their details.\n"
-                      "20€",
+                      "FREE",
                       style: TextStyle(fontSize: 15)),
                   value: true,
                   onChanged: null),
@@ -100,41 +103,21 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
                   title: const Text('Add prescription',
                       style: TextStyle(fontSize: 25)),
                   subtitle: const Text(
-                      "User will be able to add the prescription and the diagnostic given to his patient",
+                      "User will be able to add the prescription and the diagnostic given to his patient.\n"
+                          + "20€",
                       style: TextStyle(fontSize: 15)),
                   value: _valueAddPrescription,
                   onChanged: (bool? value) {
                     setState(() {
                       _valueAddPrescription = value;
+
                     });
                   }),
             ],
           ),
         ),
-        SizedBox(
-          height: 25,
-        ),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            elevation: 5,
-          ),
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (BuildContext context) {
-                return AlertDialog(
-                    content: Text("Your app has been generated!"),
-                    actions: [
-                      TextButton(
-                        child: Text("Continue"),
-                        onPressed: () => Navigator.pop(context, true),
-                      )
-                    ]);
-              },
-            );
-          },
-          child: Text('Generate app'),
-        ),
+
+
 
         //
         // Expanded(
