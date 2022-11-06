@@ -65,9 +65,9 @@ class _AddHospitalLogoScreenState extends State<AddHospitalLogoScreen> {
                       children: [
                         GestureDetector(
                           child: Text(
-                              "Continue to payment checkout",
+                              "Continue to payment\n checkout",
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             color: Colors.white
                           )),
                             onTap: () {
@@ -79,7 +79,7 @@ class _AddHospitalLogoScreenState extends State<AddHospitalLogoScreen> {
                               );}
                         ),
                           SizedBox(
-                            width: 30,
+                            width:10,
                           )
                       ],
                     ),

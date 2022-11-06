@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:structured_flutter_backend/screens/LoadingScreen.dart';
 
+import 'DownloadScreen.dart';
+
 class PaymentCheckoutScreen extends StatefulWidget {
   const PaymentCheckoutScreen({Key? key}) : super(key: key);
 
@@ -25,17 +27,35 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
                 child: Image.asset('assets/Component3.png'),
                 alignment: Alignment.topLeft,
               ),
+
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.fromLTRB(18, 0, 18, 0),
                 child: Text("Payment checkout",
                     style: TextStyle(fontSize: 30)),
               ),
-              Padding(
-                padding: const EdgeInsets.all(28.0),
-                child: Text(
-                    "   In order to create a more personalized application for your hospital,"
-                        " we recommend adding a picture of your hospital's logo. Otherwise, we will use our own logo.",
-                    style: TextStyle(fontSize: 20)),
+
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                        "20 €",
+                        style: TextStyle(
+                            fontSize: 50,
+                            color: Colors.amber[700],
+                          fontWeight: FontWeight.bold
+                        ),
+                    ),
+                  ],
+                ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                      "  - Application created only for your doctors\n"
+                          "  - default settings",
+                      style: TextStyle(fontSize: 20)),
+                ],
               ),
 
               Container(
@@ -66,7 +86,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
                                   Navigator.push<Widget>(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => LoadingScreen(),
+                                      builder: (context) => DownloadScreen(),
                                     ),
                                   );}
                             ),
