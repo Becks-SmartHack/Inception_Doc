@@ -38,7 +38,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                        "20 €",
+                        "70 €",
                         style: TextStyle(
                             fontSize: 50,
                             color: Colors.amber[700],
