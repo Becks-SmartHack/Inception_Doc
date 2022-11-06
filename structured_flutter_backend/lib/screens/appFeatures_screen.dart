@@ -31,7 +31,7 @@ class _AppFeaturesScreenState extends State<AppFeaturesScreen> {
             alignment: Alignment.centerRight,
             child: Text.rich(
               TextSpan(
-                  text: 'What features do you need?',
+                  text: 'Who are you building your application for?',
                   style: TextStyle(
                     fontSize: 35.0,
                   ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:structured_flutter_backend/screens/PaymentCheckoutScreen.dart';
 
-import 'appFeatures_screen.dart';
 
 class AddHospitalLogoScreen extends StatefulWidget {
   const AddHospitalLogoScreen({Key? key}) : super(key: key);
