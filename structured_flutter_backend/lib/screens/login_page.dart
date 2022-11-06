@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:structured_flutter_backend/screens/splash.dart';
+import 'package:structured_flutter_backend/screens/carousel_screen.dart';
 
 class LoginPage extends StatefulWidget{
   const LoginPage ({Key? key, required this.title}) : super (key: key);
@@ -13,6 +14,18 @@ class LoginPage extends StatefulWidget{
 class _LoginPage  extends State<LoginPage>{
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
+    void navigateCarouselScreen () {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => CarouselScreen (
+              )
+          )
+      );
+    }
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -38,8 +51,10 @@ class _LoginPage  extends State<LoginPage>{
               ),
             ),
             Padding(
-                padding: EdgeInsets.fromLTRB(37, 0, 37, 0),
-                child: TextField(
+                padding: EdgeInsets.fromLTRB(100 * width / 1080 , 0, 100 * width / 1080, 0),
+                child: Column(
+                children:[
+                  TextField(
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     filled: true,
@@ -49,9 +64,65 @@ class _LoginPage  extends State<LoginPage>{
                     ),
                     hintText: 'Email',
                     fillColor: Color.fromRGBO(48, 131, 220, 0.2),
+                    prefixIcon: Icon(Icons.email),
                   ),
                 ),
+                  SizedBox(height: 40),
+                  TextField(
+                    obscureText: true,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+
+                      filled: true,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide(color: Color.fromRGBO(48, 131, 220, 0.2),)
+                      ),
+                      hintText: 'Password',
+                      fillColor: Color.fromRGBO(48, 131, 220, 0.2),
+                      prefixIcon: Icon(Icons.key),
+
+                    ),
+                  ),
+              ],
+              ),
             ),
+
+              ElevatedButton(
+                onPressed: navigateCarouselScreen,
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                  (Set<MaterialState> states) {
+
+              return Color.fromRGBO(240,101,67, 1);
+              },
+              ),
+
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Color.fromRGBO(240,101,67, 1))
+                          ),
+                      ),
+                  ),
+                  child: Text("Log in")
+                ),
+            SizedBox(width: 10, height: 10),
+            Text("Don't have an account?"),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push<Widget>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CarouselScreen(),
+                    ),
+                  );
+                },
+                child: Text( 'Sign in',
+                style: TextStyle(color: Colors.amber[900])
+                )
+            ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -59,7 +130,7 @@ class _LoginPage  extends State<LoginPage>{
                   'assets/Component4.png',
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
